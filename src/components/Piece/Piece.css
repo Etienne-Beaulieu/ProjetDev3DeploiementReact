@@ -1,0 +1,371 @@
+/* Css pour afficher selon la platforme utilisee (mobile, tablete, pc) */
+/* Une bonne partie du css est fait par ia, mais j'ai ajuster beaucoup de parametres avec l'inspecteur */
+
+/* Base - Mobile First */
+ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  padding: 15px 0;
+}
+
+ul li {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+ul li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+ul li button {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  text-align: left;
+  background: white;
+  color: #2d3748;
+  border-radius: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+ul li button:hover {
+  background: white;
+  transform: none;
+}
+
+ul li button h1 {
+  font-size: 1.4rem;
+  color: #1a1a1a;
+  margin: 0;
+  flex: 1;
+  min-width: 0;
+  word-wrap: break-word;
+}
+
+.piece-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.edit-button,
+.delete-button {
+  width: 35px;
+  height: 35px;
+  padding: 0;
+  font-size: 1rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.edit-button {
+  background-color: #6b5d4f;
+  color: white;
+}
+
+.edit-button:hover {
+  background-color: #4a3f33;
+  transform: scale(1.1);
+}
+
+.delete-button {
+  background-color: #c53030;
+  color: white;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.delete-button:hover {
+  background-color: #9b2c2c;
+  transform: scale(1.1);
+}
+
+.piece-details {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px 10px;
+  text-align: center;
+}
+
+.piece-details > button {
+  margin-bottom: 30px;
+  background-color: #6b5d4f;
+  font-size: 1rem;
+}
+
+.piece-details > button:hover {
+  background-color: #4a3f33;
+}
+
+.piece-details h1 {
+  font-size: 2rem;
+  color: #1a1a1a;
+  margin-bottom: 30px;
+}
+
+.piece-info.compositor-section {
+  background: none;
+  border: none;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+.piece-info.compositor-section img {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  margin: 20px auto;
+  display: block;
+}
+
+.piece-info.compositor-section h2 {
+  font-size: 1.5rem;
+  color: #1a1a1a;
+  margin-bottom: 15px;
+}
+
+.piece-info.compositor-section p {
+  font-size: 1.1rem;
+  color: #2d2d2d;
+  margin: 8px 0;
+}
+
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 30px 0;
+  background: #f5ebe0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.info-table th,
+.info-table td {
+  padding: 12px 15px;
+  text-align: left;
+  font-size: 1rem;
+  border-bottom: 1px solid #d4c5b0;
+}
+
+.info-table th {
+  background-color: #e8dcc8;
+  color: #1a1a1a;
+  font-weight: 700;
+  width: 35%;
+}
+
+.info-table td {
+  color: #2d2d2d;
+  background-color: #f5ebe0;
+}
+
+.info-table tr:last-child th,
+.info-table tr:last-child td {
+  border-bottom: none;
+}
+
+.info-table tr:hover {
+  background-color: #e8dcc8;
+}
+
+.info-table ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0;
+  grid-template-columns: 1fr;
+  margin: 0;
+}
+
+.info-table ul li {
+  background: #6b5d4f;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  box-shadow: none;
+  transform: none;
+  transition: all 0.2s ease;
+}
+
+.info-table ul li:hover {
+  background: #4a3f33;
+  transform: scale(1.05);
+}
+
+p {
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 30px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Tablette */
+@media (min-width: 600px) {
+  ul {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 18px 0;
+  }
+
+  ul li button {
+    padding: 25px;
+  }
+
+  ul li button h1 {
+    font-size: 1.6rem;
+  }
+
+  .piece-actions {
+    gap: 9px;
+  }
+
+  .edit-button,
+  .delete-button {
+    width: 38px;
+    height: 38px;
+    font-size: 1.1rem;
+  }
+
+  .delete-button {
+    font-size: 1.4rem;
+  }
+
+  .piece-details {
+    padding: 30px 20px;
+  }
+
+  .piece-details h1 {
+    font-size: 2.5rem;
+    margin-bottom: 35px;
+  }
+
+  .piece-info.compositor-section img {
+    max-width: 450px;
+  }
+
+  .piece-info.compositor-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .piece-info.compositor-section p {
+    font-size: 1.2rem;
+  }
+
+  .info-table th,
+  .info-table td {
+    padding: 15px 18px;
+    font-size: 1.1rem;
+  }
+
+  .info-table ul li {
+    font-size: 0.95rem;
+  }
+
+  p {
+    font-size: 1.3rem;
+    padding: 35px;
+  }
+}
+
+/* PC */
+@media (min-width: 900px) {
+  ul {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px 0;
+  }
+
+  ul li button {
+    padding: 30px;
+  }
+
+  ul li button h1 {
+    font-size: 1.8rem;
+  }
+
+  .piece-actions {
+    gap: 10px;
+  }
+
+  .edit-button,
+  .delete-button {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+
+  .delete-button {
+    font-size: 1.5rem;
+  }
+
+  .piece-details {
+    max-width: 900px;
+    padding: 40px 20px;
+  }
+
+  .piece-details h1 {
+    font-size: 3rem;
+    margin-bottom: 40px;
+  }
+
+  .piece-info.compositor-section {
+    margin-bottom: 40px;
+  }
+
+  .piece-info.compositor-section img {
+    width: 500px;
+    height: 500px;
+    max-width: none;
+  }
+
+  .piece-info.compositor-section h2 {
+    font-size: 2rem;
+  }
+
+  .piece-info.compositor-section p {
+    font-size: 1.3rem;
+  }
+
+  .info-table {
+    margin: 40px 0;
+  }
+
+  .info-table th,
+  .info-table td {
+    padding: 18px 20px;
+    font-size: 1.2rem;
+  }
+
+  .info-table ul li {
+    font-size: 1rem;
+  }
+
+  p {
+    font-size: 1.4rem;
+    padding: 40px;
+  }
+}

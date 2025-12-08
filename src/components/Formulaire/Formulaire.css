@@ -1,0 +1,208 @@
+/* Css pour afficher selon la platforme utilisee (mobile, tablete, pc) */
+/* Une bonne partie du css est fait par ia, mais j'ai ajuster beaucoup de parametres avec l'inspecteur */
+
+/* Base - Mobile First */
+.form-container {
+  max-width: 100%;
+  margin: 0 auto;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h1 {
+  text-align: center;
+  color: #1a1a1a;
+  margin-bottom: 30px;
+  font-size: 1.8rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2d2d2d;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 12px 15px;
+  font-size: 1rem;
+  border: 2px solid #d4c5b0;
+  border-radius: 8px;
+  font-family: inherit;
+  transition: border-color 0.3s ease;
+  width: 100%;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #6b5d4f;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+.checkbox-group input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.error-banner {
+  background-color: #ff0000;
+  border: 2px solid #000000;
+  color: #ffffff;
+  font-weight: bold;
+  font-family: Impact, 'Arial Black', sans-serif;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+.form-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.form-buttons button {
+  width: 100%;
+  padding: 15px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.submit-button {
+  background-color: #6b5d4f;
+  color: white;
+}
+
+.submit-button:hover:not(:disabled) {
+  background-color: #4a3f33;
+  transform: translateY(-2px);
+}
+
+.submit-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.cancel-button {
+  background-color: #6b5d4f;
+  color: white;
+}
+
+.cancel-button:hover {
+  background-color: #4a3f33;
+  transform: translateY(-2px);
+}
+
+/* Tablette */
+@media (min-width: 600px) {
+  .form-container {
+    max-width: 700px;
+    padding: 30px;
+  }
+
+  .form-container h1 {
+    font-size: 2.2rem;
+  }
+
+  .form-group label {
+    font-size: 1.1rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-size: 1.1rem;
+  }
+
+  .error-banner {
+    font-size: 15px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .form-buttons {
+    flex-direction: row;
+  }
+
+  .form-buttons button {
+    width: auto;
+    flex: 1;
+  }
+}
+
+/* Pc */
+@media (min-width: 900px) {
+  .form-container {
+    max-width: 900px;
+    padding: 40px;
+  }
+
+  .form-container h1 {
+    font-size: 2.5rem;
+  }
+
+  .form-group label {
+    font-size: 1.2rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-size: 1.2rem;
+  }
+
+  .error-banner {
+    font-size: 16px;
+  }
+
+  .form-buttons button {
+    font-size: 1.2rem;
+  }
+}

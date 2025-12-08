@@ -1,42 +1,294 @@
+/* Css pour afficher selon la platforme utilisee (mobile, tablete, pc) */
+/* Une bonne partie du css est fait par ia, mais j'ai ajuster beaucoup de parametres avec l'inspecteur */
+
+/* Base - Mobile First */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #d4c5b0;
+  min-height: 100vh;
+  color: #1a1a1a;
+  padding: 10px;
+  position: relative;
+}
+
 #root {
-  max-width: 1280px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 10px;
+}
+
+h1 {
+  font-size: 1.8rem;
+  margin-bottom: 0.8rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.6rem;
+  margin-top: 1.2rem;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #2d2d2d;
+  padding: 10px;
+}
+
+button {
+  background-color: #6b5d4f;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  width: 100%;
+}
+
+button:focus,
+button:focus-visible,
+button:active {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+button:hover {
+  background-color: #4a3f33;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.language-button,
+.login-button {
+  position: fixed;
+  top: 10px;
+  width: auto;
+  padding: 10px 15px;
+  font-size: 0.9rem;
+  background-color: #2d7a3e;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  z-index: 1000;
+}
+
+.language-button:hover,
+.login-button:hover {
+  background-color: #236030;
+}
+
+.language-button {
+  right: 10px;
+}
+
+.login-button {
+  left: 10px;
+}
+
+.logout-button {
+  background-color: #8b4513;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.logout-button:hover {
+  background-color: #6b3410;
+}
+
+.filters-container {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.filters-container h1 {
+  margin-bottom: 20px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.add-piece-button {
+  background-color: #2d7a3e;
+  font-size: 1.1rem;
+  padding: 12px 20px;
+  margin-bottom: 20px;
+}
+
+.add-piece-button:hover {
+  background-color: #236030;
+}
+
+.filter-section {
+  margin: 20px 0;
+}
+
+.filter-section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.filter-button {
+  font-size: 1rem;
+  padding: 10px 20px;
+  min-width: 150px;
+}
+
+.year-inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+}
+
+.year-inputs input {
+  padding: 10px 15px;
+  font-size: 1rem;
+  border: 2px solid #d4c5b0;
+  border-radius: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+.year-inputs input:focus {
+  outline: none;
+  border-color: #6b5d4f;
+}
+
+.year-inputs span {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.apply-button {
+  background-color: #6b5d4f;
+  padding: 12px;
+}
+
+.reset-button {
+  background-color: #8b4513;
+  margin-top: 10px;
+}
+
+.reset-button:hover {
+  background-color: #6b3410;
+}
+
+.filter-status {
+  margin-top: 10px;
+  font-size: 1.1rem;
+  color: #6b5d4f;
+  font-weight: 600;
+  box-shadow: none;
+}
+
+/* TABLETTE */
+@media (min-width: 600px) {
+  body {
+    padding: 20px;
   }
-  to {
-    transform: rotate(360deg);
+
+  #root {
+    max-width: 700px;
+  }
+
+  button {
+    width: auto;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  .language-button,
+  .login-button {
+    top: 20px;
+    padding: 12px 18px;
+    font-size: 1rem;
+  }
+
+  .language-button {
+    right: 20px;
+  }
+
+  .login-button {
+    left: 20px;
+  }
+
+  .year-inputs {
+    flex-direction: row;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .filter-section h3 {
+    font-size: 1.3rem;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+/* PC */
+@media (min-width: 900px) {
+  #root {
+    max-width: 1200px;
+    padding: 30px;
   }
-}
 
-.card {
-  padding: 2em;
-}
+  h1 {
+    font-size: 2.5rem;
+  }
 
-.read-the-docs {
-  color: #888;
+  h2 {
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: 1.2rem;
+    padding: 20px;
+  }
+
+  span {
+    padding-top: 8px;
+  }
+
+  .language-button,
+  .login-button {
+    top: 30px;
+    padding: 14px 20px;
+    font-size: 1.1rem;
+  }
+
+  .language-button {
+    right: 30px;
+  }
+
+  .login-button {
+    left: 30px;
+  }
+
+  .filters-container {
+    padding: 30px;
+    margin-bottom: 30px;
+  }
+
+  .filter-button {
+    font-size: 1.2rem;
+    padding: 12px 30px;
+    min-width: 180px;
+  }
+
+  .year-inputs input {
+    width: 150px;
+  }
 }

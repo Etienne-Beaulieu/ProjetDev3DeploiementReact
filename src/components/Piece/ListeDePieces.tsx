@@ -32,6 +32,7 @@ export function ListeDePieces({
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
+  // useEffect pour charger les pieces
   useEffect(() => {
     async function chargerPieces() {
       setLoading(true);
@@ -99,7 +100,7 @@ export function ListeDePieces({
 
       {/* Boucle pour afficher chaque pièce */}
       {pieces.map((piece) => (
-        <li key={piece._id} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+        <li key={piece._id} style={{ display: 'flex', alignItems: 'center', gap: '10px' , padding: '3px'}}>
 
           {/* Bouton principal pour sélectionner une pièce */}
           <div onClick={() => onPieceSelect(piece._id)} style={{ flex: 1, cursor: 'pointer' }}>

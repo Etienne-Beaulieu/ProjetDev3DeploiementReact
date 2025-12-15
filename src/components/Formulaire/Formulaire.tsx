@@ -21,7 +21,7 @@ interface FormErrors {
   compositorImageUrl?: string;
 }
 
-// Le formulaire exporter, selon si une piece est recue, on est en mode ajouter ou supprimer
+// Les variables d'etats du formulaire exporter, selon si une piece est recue, on est en mode ajouter ou supprimer
 export function Formulaire({ piece, onSuccess, onCancel }: FormulaireProps) {
   const intl = useIntl();
   const [formData, setFormData] = useState({

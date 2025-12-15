@@ -74,7 +74,8 @@ export function ListeDePieces({
     );
     
     if (confirmation) {
-      const response = await deletePiece(pieceId);
+      const response = await deletePiece(pieceId.toString());
+      console.log('Delete response:', response);
       if (response && response.success) {
         setPieces(pieces.filter(p => p._id !== pieceId));
       } else {
@@ -98,36 +99,38 @@ export function ListeDePieces({
 
       {/* Boucle pour afficher chaque pièce */}
       {pieces.map((piece) => (
-        <li key={piece._id}>
+        <li key={piece._id} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
 
           {/* Bouton principal pour sélectionner une pièce */}
-          <button onClick={() => onPieceSelect(piece._id)}>
+          <div onClick={() => onPieceSelect(piece._id)} style={{ flex: 1, cursor: 'pointer' }}>
 
             {/* Nom de la pièce affiché */}
             <h1>{piece.pieceName}</h1>
 
-            <div className="piece-actions">
+          </div>
 
-              {/* Bouton pour modifier la pièce */}
-              <button
-                className="edit-button"
-                onClick={(e) => modifierPiece(e, piece)}
-                title={intl.formatMessage({ id: 'list.edit' })}
-              >
-                ✏️
-              </button>
+          <div className="piece-actions">
 
-              {/* Bouton pour supprimer la pièce */}
-              <button
-                className="delete-button"
-                onClick={(e) => supprimerPiece(e, piece._id, piece.pieceName)}
-                title={intl.formatMessage({ id: 'list.delete' })}
-              >
-                ✕
-              </button>
+            {/* Bouton pour modifier la pièce */}
+            <button
+              className="edit-button"
+              onClick={(e) => modifierPiece(e, piece)}
+              title={intl.formatMessage({ id: 'list.edit' })}
+            >
+              ✏️
+            </button>
 
-            </div>
-          </button>
+            {/* Bouton pour supprimer la pièce */}
+            <button
+              className="delete-button"
+              onClick={(e) => supprimerPiece(e, piece._id, piece.pieceName)}
+              title={intl.formatMessage({ id: 'list.delete' })}
+            >
+              ✕
+            </button>
+
+          </div>
+
         </li>
       ))}
     </ul>

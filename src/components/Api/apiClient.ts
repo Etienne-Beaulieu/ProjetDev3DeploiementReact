@@ -54,7 +54,7 @@ export const fetchPiecesBetweenYears = async (start: number, end: number): Promi
 // Post une piece
 export const addPiece = async (piece: Omit<Piece, '_id'>): Promise<PieceOne | null> => {
     try {
-        return await apiRequest<PieceOne>('/api/pieces/add', 'POST', piece);
+        return await apiRequest<PieceOne>('/api/pieces/add', 'POST', { piece });
     } catch (error) {
         console.error('api.error.add', error);
         return null;
@@ -64,7 +64,7 @@ export const addPiece = async (piece: Omit<Piece, '_id'>): Promise<PieceOne | nu
 // Put une piece
 export const updatePiece = async (piece: Piece): Promise<PieceOne | null> => {
     try {
-        return await apiRequest<PieceOne>('/api/pieces/update', 'PUT', piece);
+        return await apiRequest<PieceOne>('/api/pieces/update', 'PUT', { piece });
     } catch (error) {
         console.error('api.error.update', error);
         return null;
